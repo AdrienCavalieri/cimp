@@ -1,0 +1,119 @@
+--- UTILS ---
+
+list
+    Affiche la liste des images chargées avec leur id.
+
+
+quit
+    Quitte le programme (peut-être appelé avec Ctrl-D).
+
+--- GESTION ---
+
+load PATH...
+    Charge une ou plusieurs images dont le chemin est précisé en argument.
+
+
+unload ID_IMAGE...
+    Décharge une ou plusieurs images.
+
+
+save ID_IMAGE PATH [FORMAT]
+    Sauvegarde une image dont le chemin est précisé en argument.
+    Le format de le l'image saugarder peut être précisé, les format supportés sont: 'BMP','JPG' et PNG.
+
+
+select [ID_IMAGE] | [-[a|d]r X1 Y1 X2 Y2] | [-[a|d]m] | [-[a|d]c COULEUR] | [--all]
+    Sans argument select affiche l'image le chemin de l'image sélectionnée.
+
+    Avec ID_IMAGE selectionne l'image avec l'id donné.
+
+    Avec -r, effectue une selection rectangulaire à partir de deux points opposés (X1,Y1) et (X2,Y2).
+    Une image doit être sélectionnée au préalable.
+
+    Avec -m, demande une sélection à la souris (en lasso) sur une image.
+    Une image doit être sélectionnée et affichée au préalable.
+
+    Avec -c, sélectionne les pixel de couleur COULEUR.
+    COULEUR peut être donné sous forme "r g b a" ou sous forme hexadecimal (#rrbbggaa).
+
+    Avec --all, selectionne toute l'image.
+
+    a ou d, peuvent être ajoutés devant r, m ou c pour respectivement, ajouter ou soustraire
+    la sélection courante avec la prochaine sélection.
+
+
+unselect
+    Supprime la sélection courante.
+
+
+show [-w ID_FENETRE]
+    Sans paramètre, affiche l'image sélectionnée dans une nouvelle fenêtre.
+
+    Avec -w ID_FENETRE affiche l'image dans la fenêtre ID_FENETRE.
+
+--- EDITION ---
+
+copy
+    copie la sélection courante.
+
+
+cut
+    coupe la sélection courante.
+
+
+paste
+    colle la selection enregistrée avec copy ou cut dans la sélection courante.
+
+
+symmetry [-v | -h]
+    Avec -v, retourne l'image verticalement.
+
+    Avec -h, retourne l'image horizontalement.
+
+
+rotate ANGLE
+    Effectue une rotation de l'image selectionnée.
+    L'angle de rotation doit être un multiple de 90° (90,180,270).
+
+
+resize HAUTEUR LARGEUR
+    Redimensionne l'image sélectionnée.
+
+
+crop
+    Recadre l'image sélectionnée par rapport à la selection courante.
+
+
+fill COULEUR
+    Remplit la sélection courante par la couleur COULEUR.
+    COULEUR peut être donné sous forme "r g b a" ou sous forme hexadecimal (#rrbbggaa).
+
+
+invert
+    Met en négatif la sélection courante.
+
+
+grayscale
+    Met en niveaux de gris la sélection courante.
+
+
+bwconversion
+    Met en noir et blanc la selection courante.
+
+
+contrast COEFF
+    Change le contraste de l'image ou de la sélection courante. 
+    COEFF est une valeur comprise entre -128 et 127(inclus).
+
+
+brightness COEFF
+    Change la luminosité de l'image ou de la sélection courante.
+    COEFF est une valeur entre -128 et 127(inclus).
+
+
+replace COULEUR1 COULEUR2
+    Remplace COULEUR1 par COULEUR2 dans la selection courante.
+    COULEUR1 et COULEUR2 peuvent être données sous forme "r g b a" ou sous forme hexadecimal (#rrbbggaa).
+
+erase
+    Remplace la selection courant dans la couleur "nulle".
